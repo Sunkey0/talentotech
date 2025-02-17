@@ -71,3 +71,11 @@ if menu == "🔎 Visualización":
         max_value=data["Fecha"].max()
     )
     filtered_data = filtered_data[(filtered_data["Fecha"] >= pd.to_datetime(fecha_inicio)) & (filtered_data["Fecha"] <= pd.to_datetime(fecha_fin))]
+
+    st.write("### Gráfico de Línea")
+    plt.figure(figsize=(10, 6))
+    plt.plot(data_filtrada['Fecha'], data_filtrada['Valor'], marker='o')
+    plt.title('Evolución del Valor a lo largo del Tiempo')
+    plt.xlabel('Fecha')
+    plt.ylabel('Valor')
+    st.pyplot(plt)
