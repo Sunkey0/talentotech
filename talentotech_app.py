@@ -40,6 +40,6 @@ menu = st.sidebar.radio(
 )
 
 # 4. Mostrar los Datos
-if menu == "Datos":
+if menu == "📋 Datos":
     st.subheader("📂 Vista previa de los datos")
     st.dataframe(data)
