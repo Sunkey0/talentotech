@@ -74,8 +74,8 @@ if menu == "🔎 Visualización":
 
     st.write("### Gráfico de Línea")
     plt.figure(figsize=(10, 6))
-    plt.plot(data_filtrada['Fecha'], data_filtrada['Valor'], marker='o')
+    plt.plot(data_filtrada['Fecha'], data_filtrada['Ventas'], marker='o')
     plt.title('Evolución del Valor a lo largo del Tiempo')
     plt.xlabel('Fecha')
-    plt.ylabel('Valor')
+    plt.ylabel('Ventas')
     st.pyplot(plt)
