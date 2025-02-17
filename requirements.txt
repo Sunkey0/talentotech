@@ -4,5 +4,5 @@ pandas
 matplotlib
 scipy
 seaborn
-plitly
+plotly
 datetime
