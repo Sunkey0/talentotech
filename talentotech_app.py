@@ -29,6 +29,6 @@ data = pd.DataFrame({
 # 3. Implementación de la Barra de Navegación
 menu = st.sidebar.radio(
     "Selecciona una opción:",
-    ["Inicio", "Datos", "Visualización", "Configuración"]
+    ["🏠 Inicio", "📋 Datos", "🔎 Visualización", "🧰 Configuración"]
 )
 
