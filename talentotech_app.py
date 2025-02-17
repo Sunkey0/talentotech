@@ -17,7 +17,7 @@ st.sidebar.title("⚙️ Opciones de navegación")
 
 # 2. Cargar datos o Generación de Datos Aleatorios
 
-uploaded_file = st.sidebar.file_uploader("Sube tu archivo CSV", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("⬆️ Sube tu archivo CSV", type=["csv"])
 
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
