@@ -13,4 +13,4 @@ st.set_page_config(
   layout="wide"
 )
 st.title("📈 Dashboard Interactivo con Streamlit")
-st.st.sidebar.title(" Opciones navegaor")
+st.sidebar.title("⚙️ Opciones navegación")
