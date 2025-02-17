@@ -45,7 +45,7 @@ if menu == "📋 Datos":
 
 # 5. Filtrar por Categoría
 filtered_data = data  # Asegurar que filtered_data esté definido en todo el script
-if menu == "Visualización":
+if menu == "🔎 Visualización":
     st.subheader("📊 Visualización de Datos")
     categoria = st.sidebar.selectbox("Selecciona una categoría", data["Categoría"].unique())
     filtered_data = data[data["Categoría"] == categoria]
