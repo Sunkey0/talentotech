@@ -6,17 +6,16 @@ import seaborn as sns
 import plotly.express as px
 from datetime import datetime
 
-# 1. configuración inicial de la aplicación 
+# 1. Configuración inicial de la aplicación
 st.set_page_config(
-  page_title="Dashboard Interactivo",
-  page_icon="📈",
-  layout="wide"
+    page_title="Dashboard Interactivo",
+    page_icon="📈",
+    layout="wide"
 )
 st.title("📈 Dashboard Interactivo con Streamlit")
 st.sidebar.title("⚙️ Opciones de navegación")
 
 # 2. Cargar datos o Generación de Datos Aleatorios
-
 uploaded_file = st.sidebar.file_uploader("⬆️ Sube tu archivo CSV", type=["csv"])
 
 if uploaded_file is not None:
@@ -38,7 +37,6 @@ menu = st.sidebar.radio(
     "Selecciona una opción:",
     ["🏠 Inicio", "📋 Datos", "🔎 Visualización", "🧰 Configuración"]
 )
-
 
 # 4. Mostrar los Datos
 if menu == "📋 Datos":
@@ -72,10 +70,11 @@ if menu == "🔎 Visualización":
     )
     filtered_data = filtered_data[(filtered_data["Fecha"] >= pd.to_datetime(fecha_inicio)) & (filtered_data["Fecha"] <= pd.to_datetime(fecha_fin))]
 
+    # 8. Gráfico de Línea
     st.write("### Gráfico de Línea")
     plt.figure(figsize=(10, 6))
-    plt.plot(data_filtrada['Fecha'], data_filtrada['Ventas'], marker='o')
-    plt.title('Evolución del Valor a lo largo del Tiempo')
+    plt.plot(filtered_data['Fecha'], filtered_data['Ventas'], marker='o')  # Usar filtered_data en lugar de data_filtrada
+    plt.title('Evolución de las Ventas a lo largo del Tiempo')
     plt.xlabel('Fecha')
     plt.ylabel('Ventas')
     st.pyplot(plt)
