@@ -45,7 +45,7 @@ if menu == "📋 Datos":
 
 # 5. Filtrar por Categoría
 filtered_data = data  # Asegurar que filtered_data esté definido en todo el script
-if menu == "🔎 Visualización":
+if menu == "Visualización":
     st.subheader("📊 Visualización de Datos")
     categoria = st.sidebar.selectbox("Selecciona una categoría", data["Categoría"].unique())
     filtered_data = data[data["Categoría"] == categoria]
@@ -70,11 +70,28 @@ if menu == "🔎 Visualización":
     )
     filtered_data = filtered_data[(filtered_data["Fecha"] >= pd.to_datetime(fecha_inicio)) & (filtered_data["Fecha"] <= pd.to_datetime(fecha_fin))]
 
-    # 8. Gráfico de Línea
-    st.write("### Gráfico de Línea")
-    plt.figure(figsize=(10, 6))
-    plt.plot(filtered_data['Fecha'], filtered_data['Ventas'], marker='o')  # Usar filtered_data en lugar de data_filtrada
-    plt.title('Evolución de las Ventas a lo largo del Tiempo')
-    plt.xlabel('Fecha')
-    plt.ylabel('Ventas')
-    st.pyplot(plt)
+    # 8. Botón para Reiniciar Filtros
+    if st.sidebar.button("Reiniciar Filtros"):
+        filtered_data = data
+        st.experimental_rerun()
+
+    # 9. Implementar Pestañas
+    st.subheader("📌 Navegación entre Pestañas")
+    tab1, tab2 = st.tabs(["📊 Gráficos", "📂 Datos"])
+    with tab1:
+        st.subheader("Visualización de Datos")
+        fig_plotly = px.scatter(
+            filtered_data,
+            x="Ventas",
+            y="Descuento",
+            color="Región",
+            title="Relación entre Ventas y Descuento por Región",
+        )
+        st.plotly_chart(fig_plotly)
+    with tab2:
+        st.subheader("Datos Crudos")
+        st.dataframe(filtered_data)
+
+# 10. Mensaje de Confirmación
+st.sidebar.success("🎉 Configuración completa")
+
