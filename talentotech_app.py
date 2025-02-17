@@ -33,9 +33,6 @@ else:
         "Región": np.random.choice(["Norte", "Sur", "Este", "Oeste"], size=100)
     })
 
-st.write("### Vista previa de los datos")
-st.dataframe(data.head())
-
 # 3. Implementación de la Barra de Navegación
 menu = st.sidebar.radio(
     "Selecciona una opción:",
